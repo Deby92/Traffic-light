@@ -1,4 +1,6 @@
-
+.lights.stop .light.red {
+    background-color: red;
+  }
 /* 
 
     You can write your own styles here...
