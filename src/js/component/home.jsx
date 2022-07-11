@@ -1,30 +1,29 @@
-import React from "react";
+/* import React from "react"; */
+import React, { useState } from "react";
 
 //include images into your bundle
 
 //create your first component
-export const trafficLight = (props) => {
-	return (<div className="container">
-		<i class="fa-traffic-light"></i>
-		<div className="lights off stop">
-			{props.firstPosition}
-			<div className="light red">
-				{props.secondPosition}
+export function Home() {
+	const [ selectedColor, setSelectedColor ] = useState("red");
+
+	return (<div className="traffic_light">
+				<div 
+				onClick={() => setSelectedColor("red")}
+				className={
+					"light red" + (selectedColor === "red" ? " glow" : "")
+					}></div>
+				<div 
+				onClick={() => setSelectedColor("yellow")}
+				className={
+					"light yellow" + (selectedColor === "yellow" ? " glow" : "")
+					}></div>
+				<div
+				onClick={() => setSelectedColor("green")}
+				className={
+					"light green" + (selectedColor === "green" ? " glow" : "")
+					}></div>
+
 			</div>
-			<div className="light yellow">
-				{props.thirdPositon}
-			</div>
-			<div className="light green">
-				{props.fourthPosition}
-			</div>
-		</div>
-	</div>
 	);
 }
-
-trafficLight.setPropTypes = {
-	lightsOffStop: propTypes.array,
-	lightRed: propTypes.array,
-	lightYellow: proprTypes.array,
-	lightGreen: propTypes.array,
-};
